@@ -13,13 +13,13 @@ class Producto extends Migration
      */
     public function up()
     {
-        Schema::create('producto', function (Blueprint $table) {
+        Schema::create('productos', function (Blueprint $table) {
             $table->bigIncrements('idProducto');
             $table->string('nombre');
             $table->string('precioActual');
             $table->integer('stock');
             $table->unsignedBigInteger('idCategoria');
-            $table->foreign('idCategoria')->references('idCategoria')->on('categoria');
+            $table->foreign('idCategoria')->references('idCategoria')->on('categorias');
             $table->unsignedBigInteger('idProveedor');
             $table->foreign('idProveedor')->references('idProveedor')->on('proveedors');
             $table->timestamps();

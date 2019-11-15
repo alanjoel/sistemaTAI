@@ -13,11 +13,11 @@ class Telefono extends Migration
      */
     public function up()
     {
-        Schema::create('telefono', function (Blueprint $table) {
+        Schema::create('telefonos', function (Blueprint $table) {
             $table->bigIncrements('idTelefono');
             $table->integer('numero');
             $table->unsignedBigInteger('idCliente');
-            $table->foreign('idCliente')->references('idCliente')->on('cliente');
+            $table->foreign('idCliente')->references('idCliente')->on('clientes');
             $table->timestamps();
         });
     }

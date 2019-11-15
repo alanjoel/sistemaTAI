@@ -10,4 +10,13 @@ class producto extends Model
     	'idProducto','nombre','precioActual','stock','idCategoria','idProveedor',
     ];
     public $timestamps=false;
+
+    public function categorias()
+    {
+    	return $this->hasMany('App\categoria','idCategoria');
+    }
+    public function proveedores()
+    {
+    	return $this->hasMany('App\proveedor','idProveedor');
+    }
 }

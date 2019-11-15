@@ -13,7 +13,7 @@ class Cliente extends Migration
      */
     public function up()
     {
-        Schema::create('cliente', function (Blueprint $table) {
+        Schema::create('clientes', function (Blueprint $table) {
             $table->bigIncrements('idCliente');
             $table->string('nombre',40);
             $table->string('calle',40)->nullable();

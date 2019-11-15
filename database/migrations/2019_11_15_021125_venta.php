@@ -13,16 +13,16 @@ class Venta extends Migration
      */
     public function up()
     {
-        Schema::create('venta', function (Blueprint $table) {
+        Schema::create('ventas', function (Blueprint $table) {
             $table->bigIncrements('idVenta');
             $table->string('fecha');
             $table->string('descuento');
             $table->integer('cantidad');
             $table->integer('montoTotal');
             $table->unsignedBigInteger('idCliente');
-            $table->foreign('idCliente')->references('idCliente')->on('cliente');
+            $table->foreign('idCliente')->references('idCliente')->on('clientes');
             $table->unsignedBigInteger('idProducto');
-            $table->foreign('idProducto')->references('idProducto')->on('producto');
+            $table->foreign('idProducto')->references('idProducto')->on('productos');
             $table->timestamps();
         });
     }
