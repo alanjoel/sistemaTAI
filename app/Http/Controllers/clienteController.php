@@ -8,9 +8,10 @@ use App\cliente;
 
 class clienteController extends Controller
 {
-    public function listarClientesPorCiudad()
+    public function listarClientesPorCiudad($ciudad)
     {
-        $cliente = Cliente::select('clientes.nombre','clientes.ciudad')
+        $cliente = Cliente::select('clientes.nombre','clientes.numero','clientes.ciudad','clientes.comuna')
+    	->where('clientes.ciudad', '=', $ciudad)
     	->get();
     	return $cliente;
     }
@@ -21,7 +22,7 @@ class clienteController extends Controller
            ->count('clientes.idCliente');
         return $clientes;
     }
-    public function clienteCasero()
+    /*public function clienteCasero()
     {
         $clientes=cliente::join('ventas', 'ventas.idCliente', '=', 'clientes.idCliente') 
         where(count('clientes.idCliente'))
@@ -29,5 +30,5 @@ class clienteController extends Controller
 
         return $clientes;
 
-    }
+    }*/
 }
